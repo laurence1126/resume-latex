@@ -15,5 +15,5 @@ This project provides a LaTeX template for one-page resume (CV). Users may choos
 * `\institution{}{}` - 2 arguments required. The first should be $\textnormal{\color{#00FFFF}{school / company}}$ and the second should be $\textnormal{\color{#00FFFF}{time}}$
 * `\position{}{}` - 2 arguments required. The first should be $\textnormal{\color{#00FFFF}{major / position}}$ and the second should be $\textnormal{\color{#00FFFF}{location}}$
 * `\minor` - input your minor here (if any)
-* `\awards` - 2 arguments required. The first should be the $\textnormal{\color{#00FFFF}{name\ of\  award}}$ and the second should be $\textnormal{\color{#00FFFF}{time}}$
+* `\awards` - 2 arguments required. The first should be the $\textnormal{\color{#00FFFF}{name\ of\ award}}$ and the second should be $\textnormal{\color{#00FFFF}{time}}$
 * `\skills` - 2 arguments required. The first should be the $\textnormal{\color{#00FFFF}{categorary\ of\ skill}}$ and the second should be $\textnormal{\color{#00FFFF}{skill\ details}}$
