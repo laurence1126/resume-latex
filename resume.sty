@@ -26,8 +26,9 @@
   \vspace*{-3mm} % '*' for adjust vertical space at the start of a page
   \begin{center}
     {\LARGE\textbf{\@author}}\\[0.5em]
-    \ifthenelse{\equal{\@resumeSytle}{icons} \OR \equal{\@resumeSytle}{fancy}}{\faIcon[regular]{phone-square-alt}}{Phone:}~\href{tel:\@phone}{\@phone}~|~\ifthenelse{\equal{\@resumeSytle}{icons} \OR \equal{\@resumeSytle}{fancy}}{\faIcon[regular]{envelope}}{Email:}~\href{mailto:\@email}{\@email}\\
-    \ifthenelse{\equal{\@resumeSytle}{icons} \OR \equal{\@resumeSytle}{fancy}}{\faIcon[solid]{home}}{Address:}~\@address
+    \ifthenelse{\NOT\equal{\@resumeSytle}{normal}}{\faIcon[regular]{phone-square-alt}}{Phone:}~\href{tel:\@phone}{\@phone}~|~
+    \ifthenelse{\NOT\equal{\@resumeSytle}{normal}}{\faIcon[regular]{envelope}}{Email:}~\href{mailto:\@email}{\@email}\\
+    \ifthenelse{\NOT\equal{\@resumeSytle}{normal}}{\faIcon[solid]{home}}{Address:}~\@address
   \end{center}
 }
 % Icon for Phone: \faIcon[regular]{phone-square-alt}
