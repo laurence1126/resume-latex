@@ -22,7 +22,7 @@
 \newcommand{\address}[1]{\renewcommand{\@address}{#1}}
 %---------------------------------------------------------------------------------------%
 % redefine maketitle
-\renewcommand\@maketitle{
+\renewcommand\maketitle{
   \vspace*{-3mm} % '*' for adjust vertical space at the start of a page
   \begin{center}
     {\LARGE\textbf{\@author}}\\[0.5em]
@@ -30,6 +30,7 @@
     \ifthenelse{\NOT\equal{\@resumeSytle}{normal}}{\faIcon[regular]{envelope}}{Email:}~\href{mailto:\@email}{\@email}\\
     \ifthenelse{\NOT\equal{\@resumeSytle}{normal}}{\faIcon[solid]{home}}{Address:}~\@address
   \end{center}
+  \thispagestyle{fancy}
 }
 % Icon for Phone: \faIcon[regular]{phone-square-alt}
 % Icon for Email: \faIcon[regular]{envelope}
@@ -79,6 +80,7 @@
 \newcommand{\minor}[1]{\subsection{\textit{#1}}}
 \newcommand{\awards}[2]{\subsection{#1\hfill #2}}
 \newcommand{\skills}[2]{\subsection{\textbf{#1:~}#2}}
+\newcommand{\note}[1]{\textit{#1}}
 %---------------------------------------------------------------------------------------%
 % additional settings
 \linespread{1.2} % set line spread
