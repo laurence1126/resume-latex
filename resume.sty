@@ -29,7 +29,7 @@
 %---------------------------------------------------------------------------------------%
 % redefine maketitle
 \renewcommand\maketitle{
-  \vspace*{-7mm} % '*' for adjust vertical space at the start of a page
+  \vspace*{-8mm} % '*' for adjust vertical space at the start of a page
   \begin{center}
     {\LARGE\textbf{\@author}}\\[0.25em]
     \ifthenelse{\NOT\equal{\@resumeSytle}{normal}}{\faIcon[regular]{phone-square-alt}}{Phone:}~\href{tel:\@phone}{\@phone}~|~
@@ -37,7 +37,7 @@
     \ifthenelse{\NOT\equal{\@resumeSytle}{normal}}{\faIcon[solid]{home}}{Address:}~\@address
   \end{center}
   \thispagestyle{fancy}
-  \vspace{-2.5mm}
+  \vspace{-5mm}
 }
 % Icon for Phone: \faIcon[regular]{phone-square-alt}
 % Icon for Email: \faIcon[regular]{envelope}
@@ -77,7 +77,7 @@
 %---------------------------------------------------------------------------------------%
 % title format settings
 \usepackage{titlesec}
-\titleformat{\section}[hang]{\large\bf}{}{0em}{}[\vspace{-0.8em}\rule{\columnwidth}{1.5pt}\vspace{-0.3em}]
+\titleformat{\section}[hang]{\large\bf}{}{0em}{}[\vspace{-0.8em}\rule{\columnwidth}{1pt}\vspace{-0.3em}]
 \titlespacing{\section}{0em}{0em}{0em}[0em]
 % parameters: {left space}{above space}{below space}[space remain on the right]
 \titleformat{\subsection}[hang]{}{}{0em}{}[]
@@ -85,13 +85,12 @@
 
 \newcommand{\institution}[2]{\subsection{\textbf{#1}\hfill #2}}
 \newcommand{\position}[2]{\subsection{\textit{#1}\hfill #2}}
-\newcommand{\minor}[1]{\subsection{\textit{#1}}}
 \newcommand{\awards}[2]{\subsection{#1\hfill #2}}
 \newcommand{\skills}[2]{\subsection{\textbf{#1:~}#2}}
-\newcommand{\note}[1]{\textit{#1}}
+\newcommand{\note}[1]{\subsection{\textit{#1}}}
 %---------------------------------------------------------------------------------------%
 % additional settings
-\linespread{1.1} % set line spread
+\linespread{1.05} % set line spread
 \setlength{\parindent}{0em}
 \setlist[itemize,1]{label=$\bullet$, nosep, leftmargin=1em}
 \setlist[itemize,2]{label=$\circ$, nosep, leftmargin=1.5em}
