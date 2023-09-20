@@ -6,12 +6,11 @@
       "alignment": "left",
       "segments": [
         {
-          "type": "python",
-          "style": "powerline",
-          "powerline_symbol": "",
-          "foreground": "#100e23",
-          "background": "#906cff",
-          "template": "  {{ .Venv }} "
+          "foreground": "#E36464",
+          "style": "plain",
+          "template": "@{{ .Venv }} ",
+          "type": "python"
+        },
         },
         {
           "foreground": "#62ED8B",
