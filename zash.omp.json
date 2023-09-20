@@ -8,7 +8,7 @@
           "foreground": "#E36464",
           "style": "plain",
           "template": "@{{ .Venv }} ",
-          "type": "session"
+          "type": "python"
         },
         {
           "foreground": "#62ED8B",
