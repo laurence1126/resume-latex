@@ -32,16 +32,13 @@
   \vspace*{-7mm} % '*' for adjust vertical space at the start of a page
   \begin{center}
     {\LARGE\textbf{\@author}}\\[0.25em]
-    \ifthenelse{\NOT\equal{\@resumeSytle}{normal}}{\faIcon[regular]{phone-square-alt}}{Phone:}~\href{tel:\@phone}{\@phone}~|~
-    \ifthenelse{\NOT\equal{\@resumeSytle}{normal}}{\faIcon[regular]{envelope}}{Email:}~\href{mailto:\@email}{\@email}\\
-    \ifthenelse{\NOT\equal{\@resumeSytle}{normal}}{\faIcon[solid]{home}}{Address:}~\@address
+    \ifthenelse{\NOT\equal{\@resumeSytle}{normal}}{{\JBNF\symbol{"F098} }}{Phone:}~\href{tel:\@phone}{\@phone}~|~
+    \ifthenelse{\NOT\equal{\@resumeSytle}{normal}}{{\JBNF\symbol{"F01EE} }}{Email:}~\href{mailto:\@email}{\@email}\\
+    \ifthenelse{\NOT\equal{\@resumeSytle}{normal}}{{\JBNF\symbol{"F015} }}{Address:}~\@address
   \end{center}
   \thispagestyle{fancy}
   \vspace{-4mm}
 }
-% Icon for Phone: \faIcon[regular]{phone-square-alt}
-% Icon for Email: \faIcon[regular]{envelope}
-% Icon for Address: \faIcon[solid]{home}
 %----------------------------------------------------------------------------%
 % load packages
 \usepackage{ifthen}
@@ -67,9 +64,8 @@
 %----------------------------------------------------------------------------%
 % package for fonts
 \usepackage{fontspec}
-\usepackage[pro]{fontawesome5} % need to be installed first
-\newfontfamily\Chalkboard{Chalkboard SE} % need to be installed first
-\setmainfont{Helvetica Neue}
+\setmainfont{Helvetica Neue} % need to be installed first
+\newfontfamily\JBNF{JetBrainsMono Nerd Font}[Scale=1.1] % need to be installed first
 %----------------------------------------------------------------------------%
 % tcolorbox settings
 \usepackage[most]{tcolorbox}
