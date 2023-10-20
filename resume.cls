@@ -27,7 +27,7 @@
   	\vspace*{-7mm} % '*' for adjust vertical space at the start of a page
   	\begin{center}
     	{\LARGE\textbf{\@author}}\\[0.25em]
-    	\ifthenelse{\NOT\equal{\@resumeSytle}{normal}}{\phoneIcon}{Phone:}\ \href{tel:\@phone}{\@phone}\ |
+    	\ifthenelse{\NOT\equal{\@resumeSytle}{normal}}{\phoneIcon}{Phone:}\ \href{tel:\@phone}{\@phone}~~|~
     	\ifthenelse{\NOT\equal{\@resumeSytle}{normal}}{\emailIcon}{Email:}\ \href{mailto:\@email}{\@email}\\
     	\ifthenelse{\NOT\equal{\@resumeSytle}{normal}}{\addressIcon}{Address:}\ \@address
   	\end{center}
