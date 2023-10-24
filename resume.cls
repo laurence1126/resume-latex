@@ -79,7 +79,7 @@
 \newcommand{\indirectFontFolder}{\renewcommand{\@fontFolder}{indirect}}
 % \indirectFontFolder % uncomment this line if your 'fonts' folder contains sub-folders
 \IfFontExistsTF{Helvetica Neue}{
-    \setmainfont{Helvetica Neue}
+    \setmainfont{Helvetica Neue}[Renderer=HarfBuzz]
 }{
     \ifthenelse{\equal{\@fontFolder}{indirect}}{
         \def\@fontPath{./fonts/Helvetica Neue/}
@@ -87,15 +87,17 @@
         \def\@fontPath{./fonts/}
     }
     \setmainfont{HelveticaNeue}[
+        Extension=.ttf,
         Path=\@fontPath,
         UprightFont=*,
         BoldFont=*-Bold,
         ItalicFont=*-Italic,
-        BoldItalicFont=*-BoldItalic
+        BoldItalicFont=*-BoldItalic,
+        Renderer=HarfBuzz
     ]
 }
 \IfFontExistsTF{JetBrainsMono Nerd Font}{
-    \newfontfamily\JBNF{JetBrainsMono Nerd Font}[Scale=1.1]
+    \newfontfamily\JBNF{JetBrainsMono Nerd Font}[Scale=1.1, Renderer=HarfBuzz]
 }{
     \ifthenelse{\equal{\@fontFolder}{indirect}}{
         \def\@fontPath{./fonts/JetBrainsMono Nerd Font/}
@@ -103,12 +105,14 @@
         \def\@fontPath{./fonts/}
     }
     \newfontfamily\JBNF{JetBrainsMonoNerdFont}[
+        Extension=.ttf,
         Path=\@fontPath,
         UprightFont=*-Regular,
         BoldFont=*-Bold,
         ItalicFont=*-Italic,
         BoldItalicFont=*-BoldItalic,
-        Scale=1.1
+        Scale=1.1,
+        Renderer=HarfBuzz
     ]
 }
 \newcommand{\githubIcon}{\raisebox{-0.1em}{\JBNF\symbol{"EA84}\transparent{*}}}
