@@ -75,17 +75,11 @@
 \renewcommand{\footrulewidth}{0pt}
 %------------------------------------------------------------------------------%
 % settings for document general fonts
-\newcommand{\@fontFolder}{direct}
-\newcommand{\indirectFontFolder}{\renewcommand{\@fontFolder}{indirect}}
-% \indirectFontFolder % uncomment this line if your 'fonts' folder contains sub-folders
+% set the default folder to search for fonts
+\def\@fontPath{./fonts/}
 \IfFontExistsTF{Helvetica Neue}{
     \setmainfont{Helvetica Neue}[Renderer=HarfBuzz]
 }{
-    \ifthenelse{\equal{\@fontFolder}{indirect}}{
-        \def\@fontPath{./fonts/Helvetica Neue/}
-    }{
-        \def\@fontPath{./fonts/}
-    }
     \setmainfont{HelveticaNeue}[
         Extension=.ttf,
         Path=\@fontPath,
@@ -99,11 +93,6 @@
 \IfFontExistsTF{JetBrainsMono Nerd Font}{
     \newfontfamily\JBNF{JetBrainsMono Nerd Font}[Scale=1.1, Renderer=HarfBuzz]
 }{
-    \ifthenelse{\equal{\@fontFolder}{indirect}}{
-        \def\@fontPath{./fonts/JetBrainsMono Nerd Font/}
-    }{
-        \def\@fontPath{./fonts/}
-    }
     \newfontfamily\JBNF{JetBrainsMonoNerdFont}[
         Extension=.ttf,
         Path=\@fontPath,
@@ -121,17 +110,15 @@
 \newcommand{\addressIcon}{\raisebox{-0.1em}{\large\JBNF\symbol{"F06A1}}\hspace{0.5em}}
 %-----------------------------------------------------------------------------%
 % settings for title formats
-\titleformat{\section}[hang]{\large\bf}{}{0em}{}[\vspace{-0.8em}\rule{\columnwidth}{1pt}\vspace{-0.3em}]
+\titleformat{\section}[hang]{\large\bf}{}{0em}{}[\vspace{-0.8em}\rule{\columnwidth}{1pt}\vspace{-0.15em}]
 \titlespacing{\section}{0em}{0em}{0em}[0em]
 % parameters: {space left}{space above}{space below}[space remain on the right]
-\titleformat{\subsection}[hang]{}{}{0em}{}[]
-\titlespacing{\subsection}{0em}{0em}{0em}[0em]
 
-\newcommand{\institution}[2]{\subsection{\textbf{#1}\hfill #2}}
-\newcommand{\position}[2]{\subsection{\textit{#1}\hfill #2}}
-\newcommand{\awards}[2]{\subsection{#1\hfill #2}}
-\newcommand{\skills}[2]{\subsection{\textbf{#1:~}#2}}
-\newcommand{\note}[1]{\subsection{\textit{#1}}}
+\newcommand{\institution}[2]{\parbox{\textwidth}{\textbf{#1}\hfill #2}}
+\newcommand{\position}[2]{\parbox{\textwidth}{\textit{#1}\hfill #2}}
+\newcommand{\awards}[2]{\parbox{\textwidth}{#1\hfill #2}}
+\newcommand{\skills}[2]{\mbox{\textbf{#1:\ }#2}}
+\newcommand{\note}[1]{\mbox{\textit{#1}}}
 %-----------------------------------------------------------------------------%
 % additional settings
 \linespread{1.03} % set line spread
