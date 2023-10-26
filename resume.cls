@@ -6,7 +6,7 @@
 \newcommand{\@resumeSytle}{normal}
 \DeclareOption{fancy}{\renewcommand{\@resumeSytle}{fancy}}
 \DeclareOption{icons}{\renewcommand{\@resumeSytle}{icons}}
-\DeclareOption*{\PassOptionsToClass{\CurrentOption}{extarticle}}
+\DeclareOption*{\PassOptionsToClass{\CurrentOption}{article}}
 \ProcessOptions\relax
 \LoadClass[10pt]{article}
 %-----------------------------------------------------------------------------%
