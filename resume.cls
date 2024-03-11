@@ -113,7 +113,6 @@
 \titleformat{\section}[hang]{\large\bf}{}{0em}{}[\vspace{-0.8em}\rule{\columnwidth}{1pt}\vspace{-0.15em}]
 \titlespacing{\section}{0em}{0em}{0em}[0em]
 % parameters: {space left}{space above}{space below}[space remain on the right]
-
 \newcommand{\institution}[2]{\parbox{\textwidth}{\textbf{#1}\hfill #2}}
 \newcommand{\position}[2]{\parbox{\textwidth}{\textit{#1}\hfill #2}}
 \newcommand{\awards}[2]{\parbox{\textwidth}{#1\hfill #2}}
