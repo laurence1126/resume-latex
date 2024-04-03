@@ -9,6 +9,7 @@
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{article}}
 \ProcessOptions\relax
 \LoadClass[10pt]{article}
+\def\vspaceHead{-2em} \def\vspaceTail{-1em}
 %-----------------------------------------------------------------------------%
 % input command for name
 \newcommand{\name}[1]{\author{#1}}
@@ -24,15 +25,19 @@
 %-----------------------------------------------------------------------------%
 % redefine maketitle
 \renewcommand\maketitle{
-  	\vspace*{-7mm} % '*' for adjust vertical space at the start of a page
+  	\vspace*{\vspaceHead} % '*' for adjust vertical space at the start of a page
   	\begin{center}
     	{\LARGE\textbf{\@author}}\\[0.25em]
-    	\ifthenelse{\NOT\equal{\@resumeSytle}{classic}}{\phoneIcon}{Phone:}\ \href{tel:\@phone}{\@phone}~~|~
+    	\ifthenelse{\NOT\equal{\@resumeSytle}{classic}}{\phoneIcon}{Phone:}\ \href{tel:\@phone}{\@phone}\ |\ 
     	\ifthenelse{\NOT\equal{\@resumeSytle}{classic}}{\emailIcon}{Email:}\ \href{mailto:\@email}{\@email}\\
     	\ifthenelse{\NOT\equal{\@resumeSytle}{classic}}{\addressIcon}{Address:}\ \@address
   	\end{center}
   	\thispagestyle{fancy}
-  	\vspace{-4mm}
+    \ifthenelse{\equal{\@resumeSytle}{classic}}{
+        \vspace{\vspaceTail}
+    }{
+        \vspace{\dimexpr \vspaceTail + 0.5em \relax}
+    }
 }
 %-----------------------------------------------------------------------------%
 % load required packages
@@ -104,10 +109,12 @@
         Renderer=HarfBuzz
     ]
 }
-\newcommand{\githubIcon}{\raisebox{-0.1em}{\JBNF\symbol{"EA84}\transparent{*}}}
-\newcommand{\phoneIcon}{\raisebox{-0.05em}{\JBNF\symbol{"EB93}}\hspace{0.5em}}
-\newcommand{\emailIcon}{\raisebox{-0.05em}{\JBNF\symbol{"F42F}}\hspace{0.5em}}
-\newcommand{\addressIcon}{\raisebox{-0.1em}{\large\JBNF\symbol{"F06A1}}\hspace{0.5em}}
+
+% define shortcut for icons
+\def\githubIcon{\raisebox{-0.1em}{\JBNF\symbol{"EA84}\transparent{*}}}
+\def\phoneIcon{\raisebox{-0.05em}{\JBNF\symbol{"EB93}}\hspace{0.5em}}
+\def\emailIcon{\raisebox{-0.05em}{\JBNF\symbol{"F42F}}\hspace{0.5em}}
+\def\addressIcon{\raisebox{-0.1em}{\large\JBNF\symbol{"F06A1}}\hspace{0.5em}}
 %-----------------------------------------------------------------------------%
 % settings for title formats
 \titleformat{\section}[hang]{\large\bf}{}{0em}{}[\vspace{-0.8em}\rule{\columnwidth}{1pt}\vspace{-0.15em}]
