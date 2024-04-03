@@ -33,10 +33,10 @@
     	\ifthenelse{\NOT\equal{\@resumeSytle}{classic}}{\addressIcon}{Address:}\ \@address
   	\end{center}
   	\thispagestyle{fancy}
-    \ifthenelse{\equal{\@resumeSytle}{classic}}{
-        \vspace{\vspaceTail}
+    \ifthenelse{\equal{\@resumeSytle}{fancy}}{
+        \vspace{\the\dimexpr \vspaceTail + 0.5em \relax}
     }{
-        \vspace{\dimexpr \vspaceTail + 0.5em \relax}
+        \vspace{\vspaceTail}
     }
 }
 %-----------------------------------------------------------------------------%
