@@ -1,4 +1,4 @@
-## Resume (Template) by LaTeX
+## Resume (Template) by $\LaTeX$
 
 ### About This Project
 
