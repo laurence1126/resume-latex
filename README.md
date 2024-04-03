@@ -20,7 +20,7 @@ This project provides a $\LaTeX$ template for one-page resume (CV). Users may ch
 - `\address{}` : input your address here.
 - `\section{}` : start of a module in resume (equivalent to `\section` in original $\LaTeX$).
 - `\institution{}{}` : 2 arguments required. The first one should be **_school_** **|** **_company_** and the second one should be **_time_**.
-- `\position{}{}` - 2 arguments required. The first one should be **_major_** **|** **_position_** and the second one should be **_location_**.
-- `\awards{}{}` - 2 arguments required. The first one should be the **_name of award_** and the second one should be **_time_**.
-- `\skills{}{}` - 2 arguments required. The first one should be the **_category of skill_** and the second one should be **_skill details_**.
-- `\note{}` - 1 argument required. Any additional information or comments should be placed here.
+- `\position{}{}` : 2 arguments required. The first one should be **_major_** **|** **_position_** and the second one should be **_location_**.
+- `\awards{}{}` : 2 arguments required. The first one should be the **_name of award_** and the second one should be **_time_**.
+- `\skills{}{}` : 2 arguments required. The first one should be the **_category of skill_** and the second one should be **_skill details_**.
+- `\note{}` : 1 argument required. Any additional information or comments should be placed here.
