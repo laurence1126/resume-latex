@@ -3,7 +3,7 @@
 
 %-----------------------------------------------------------------------------%
 % defination of class variables
-\newcommand{\@resumeSytle}{normal}
+\newcommand{\@resumeSytle}{classic}
 \DeclareOption{fancy}{\renewcommand{\@resumeSytle}{fancy}}
 \DeclareOption{icons}{\renewcommand{\@resumeSytle}{icons}}
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{article}}
@@ -27,9 +27,9 @@
   	\vspace*{-7mm} % '*' for adjust vertical space at the start of a page
   	\begin{center}
     	{\LARGE\textbf{\@author}}\\[0.25em]
-    	\ifthenelse{\NOT\equal{\@resumeSytle}{normal}}{\phoneIcon}{Phone:}\ \href{tel:\@phone}{\@phone}~~|~
-    	\ifthenelse{\NOT\equal{\@resumeSytle}{normal}}{\emailIcon}{Email:}\ \href{mailto:\@email}{\@email}\\
-    	\ifthenelse{\NOT\equal{\@resumeSytle}{normal}}{\addressIcon}{Address:}\ \@address
+    	\ifthenelse{\NOT\equal{\@resumeSytle}{classic}}{\phoneIcon}{Phone:}\ \href{tel:\@phone}{\@phone}~~|~
+    	\ifthenelse{\NOT\equal{\@resumeSytle}{classic}}{\emailIcon}{Email:}\ \href{mailto:\@email}{\@email}\\
+    	\ifthenelse{\NOT\equal{\@resumeSytle}{classic}}{\addressIcon}{Address:}\ \@address
   	\end{center}
   	\thispagestyle{fancy}
   	\vspace{-4mm}
