@@ -11,17 +11,23 @@
 \LoadClass[10pt]{article}
 \def\vspaceHead{-2em} \def\vspaceTail{-1em}
 %-----------------------------------------------------------------------------%
-% input command for name
+% input command for name (required)
 \newcommand{\name}[1]{\author{#1}}
-% input command for phone
+% input command for phone (required)
 \newcommand{\@phone}{}
 \newcommand{\phone}[1]{\renewcommand{\@phone}{#1}}
-% input command for Email
+% input command for Email (required)
 \newcommand{\@email}{}
 \newcommand{\email}[1]{\renewcommand{\@email}{#1}}
 % input command for address
 \newcommand{\@address}{}
 \newcommand{\address}[1]{\renewcommand{\@address}{#1}}
+% input command for LinkedIn
+\newcommand{\@linkedin}{}
+\newcommand{\linkedin}[1]{\renewcommand{\@linkedin}{#1}}
+% input command for GitHub
+\newcommand{\@github}{}
+\newcommand{\github}[1]{\renewcommand{\@github}{#1}}
 %-----------------------------------------------------------------------------%
 % redefine maketitle
 \renewcommand\maketitle{
@@ -29,8 +35,16 @@
   	\begin{center}
     	{\LARGE\textbf{\@author}}\\[0.25em]
     	\ifthenelse{\NOT\equal{\@resumeSytle}{classic}}{\phoneIcon}{Phone:}\ \href{tel:\@phone}{\@phone}\ |\ 
-    	\ifthenelse{\NOT\equal{\@resumeSytle}{classic}}{\emailIcon}{Email:}\ \href{mailto:\@email}{\@email} \\
-    	\ifthenelse{\NOT\equal{\@resumeSytle}{classic}}{\addressIcon}{Address:}\ \@address
+    	\ifthenelse{\NOT\equal{\@resumeSytle}{classic}}{\emailIcon}{Email:}\ \href{mailto:\@email}{\@email}
+        \ifthenelse{\NOT\equal{\@linkedin}{}}{
+            \hspace{-0.5em} |\ \href{\@linkedin}{\linkedinIcon} \hspace{-0.25em}
+        }{}
+        \ifthenelse{\NOT\equal{\@github}{}}{
+            \hspace{-0.75em} |\ \href{\@github}{\githubIcon}
+        }{}
+        \ifthenelse{\NOT\equal{\@address}{}}{
+            \\ \ifthenelse{\NOT\equal{\@resumeSytle}{classic}}{\addressIcon}{Address:}\ \@address
+        }{}
   	\end{center}
   	\thispagestyle{fancy}
     \ifthenelse{\equal{\@resumeSytle}{fancy}}{
@@ -54,8 +68,8 @@
 \newtcbox{\module}{tcbox width=forced left, width=\columnwidth, enhanced, colback=black!10!white, borderline west={1mm}{0pt}{black},boxrule=0mm,
 	frame hidden, fontupper=\large\bf, colupper=black, left=0.5em, top=0.2em, bottom=0.2em, before skip=0.25em, after skip=0.25em, sharp corners, breakable}
 \newtcbox{\transparent}{blank, on line, opacitytext=0}
-\ifthenelse{\NOT\equal{\@resumeSytle}{fancy}}{
-	\renewcommand{\module}[1]{\section{#1}}
+\ifthenelse{\equal{\@resumeSytle}{fancy}}{
+	\renewcommand{\section}[1]{\module{#1}}
 }{}
 %-----------------------------------------------------------------------------%
 % settings for document page size
@@ -111,11 +125,11 @@
 }
 
 % define shortcut for icons
-\def\githubIcon{\raisebox{-0.1em}{\JBNF\symbol{"EA84}\transparent{*}}}
-\def\linkedinIcon{\raisebox{-0.1em}{\JBNF\symbol{"F08C}\transparent{*}}}
-\def\phoneIcon{\raisebox{-0.05em}{\JBNF\symbol{"EB93}}\hspace{0.5em}}
-\def\emailIcon{\raisebox{-0.05em}{\JBNF\symbol{"F42F}}\hspace{0.5em}}
-\def\addressIcon{\raisebox{-0.1em}{\large\JBNF\symbol{"F06A1}}\hspace{0.5em}}
+\def\githubIcon{\raisebox{0.1em}{\parbox{1.25em}{\large\JBNF\symbol{"EA84}}}}
+\def\linkedinIcon{\raisebox{0.1em}{\parbox{1.1em}{\large\JBNF\symbol{"F08C}}}}
+\def\phoneIcon{\raisebox{0.1em}{\parbox{1.1em}{\large\JBNF\symbol{"F098}}}}
+\def\emailIcon{\raisebox{0.1em}{\parbox{1.1em}{\large\JBNF\symbol{"F01EF}}}}
+\def\addressIcon{\raisebox{0.1em}{\parbox{1.25em}{\large\JBNF\symbol{"F015}}}}
 %-----------------------------------------------------------------------------%
 % settings for title formats
 \titleformat{\section}[hang]{\large\bf}{}{0em}{}[\vspace{-0.8em}\rule{\columnwidth}{1pt}\vspace{-0.15em}]
