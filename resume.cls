@@ -29,7 +29,7 @@
   	\begin{center}
     	{\LARGE\textbf{\@author}}\\[0.25em]
     	\ifthenelse{\NOT\equal{\@resumeSytle}{classic}}{\phoneIcon}{Phone:}\ \href{tel:\@phone}{\@phone}\ |\ 
-    	\ifthenelse{\NOT\equal{\@resumeSytle}{classic}}{\emailIcon}{Email:}\ \href{mailto:\@email}{\@email}\\
+    	\ifthenelse{\NOT\equal{\@resumeSytle}{classic}}{\emailIcon}{Email:}\ \href{mailto:\@email}{\@email} \\
     	\ifthenelse{\NOT\equal{\@resumeSytle}{classic}}{\addressIcon}{Address:}\ \@address
   	\end{center}
   	\thispagestyle{fancy}
@@ -112,6 +112,7 @@
 
 % define shortcut for icons
 \def\githubIcon{\raisebox{-0.1em}{\JBNF\symbol{"EA84}\transparent{*}}}
+\def\linkedinIcon{\raisebox{-0.1em}{\JBNF\symbol{"F08C}\transparent{*}}}
 \def\phoneIcon{\raisebox{-0.05em}{\JBNF\symbol{"EB93}}\hspace{0.5em}}
 \def\emailIcon{\raisebox{-0.05em}{\JBNF\symbol{"F42F}}\hspace{0.5em}}
 \def\addressIcon{\raisebox{-0.1em}{\large\JBNF\symbol{"F06A1}}\hspace{0.5em}}
