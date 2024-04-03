@@ -15,6 +15,8 @@ This project provides a $\LaTeX$ template for one-page resume (CV). Users may ch
 - `\name{}` : input your name here.
 - `\phone{}` : input your phone number here.
 - `\email{}` : input your email here.
+- `\linkedin{}` : input the link to your LinkedIn profile page here.
+- `\github{}` : input the link to your GitHub profile page here.
 - `\address{}` : input your address here.
 - `\section{}` : start of a module in resume (equivalent to `\section` in original $\LaTeX$).
 - `\institution{}{}` : 2 arguments required. The first one should be **_school_** **|** **_company_** and the second one should be **_time_**.
