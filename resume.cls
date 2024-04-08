@@ -142,7 +142,7 @@
 \newcommand{\note}[1]{\mbox{\textit{#1}}}
 %-----------------------------------------------------------------------------%
 % additional settings
-\linespread{1.05} % set line spread
+\linespread{1.07} % set line spread
 \setlength{\parindent}{0em}
 \setlist[itemize, 1]{label=$\bullet$, nosep, leftmargin=1em}
 \setlist[itemize, 2]{label=$\circ$, nosep, leftmargin=1.5em}
