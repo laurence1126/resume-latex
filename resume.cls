@@ -34,16 +34,16 @@
   	\vspace*{\vspaceHead} % '*' for adjust vertical space at the start of a page
   	\begin{center}
     	{\LARGE\textbf{\@author}}\\[0.25em]
-    	\ifthenelse{\NOT\equal{\@resumeSytle}{classic}}{\phoneIcon}{Phone:}\ \href{tel:\@phone}{\@phone}\ |\ 
-    	\ifthenelse{\NOT\equal{\@resumeSytle}{classic}}{\emailIcon}{Email:}\ \href{mailto:\@email}{\@email}
+    	\ifthenelse{\NOT\equal{\@resumeSytle}{classic}}{\large\phoneIcon}{Phone:}\ \href{tel:\@phone}{\@phone}\ |\ 
+    	\ifthenelse{\NOT\equal{\@resumeSytle}{classic}}{\large\emailIcon}{Email:}\ \href{mailto:\@email}{\@email}
         \ifthenelse{\NOT\equal{\@linkedin}{}}{
-            \hspace{-0.5em} |\ \href{\@linkedin}{\linkedinIcon} \hspace{-0.25em}
+            \hspace{-0.5em} |\ \href{\@linkedin}{\large\linkedinIcon} \hspace{-0.25em}
         }{}
         \ifthenelse{\NOT\equal{\@github}{}}{
-            \hspace{-0.75em} |\ \href{\@github}{\githubIcon}
+            \hspace{-0.75em} |\ \href{\@github}{\large\githubIcon}
         }{}
         \ifthenelse{\NOT\equal{\@address}{}}{
-            \\ \ifthenelse{\NOT\equal{\@resumeSytle}{classic}}{\addressIcon}{Address:}\ \@address
+            \\ \ifthenelse{\NOT\equal{\@resumeSytle}{classic}}{\large\addressIcon}{Address:}\ \@address
         }{}
   	\end{center}
   	\thispagestyle{fancy}
@@ -125,11 +125,11 @@
 }
 
 % define shortcut for icons
-\def\githubIcon{\raisebox{0.1em}{\parbox{1.25em}{\large\JBNF\symbol{"EA84}}}}
-\def\linkedinIcon{\raisebox{0.1em}{\parbox{1.1em}{\large\JBNF\symbol{"F08C}}}}
-\def\phoneIcon{\raisebox{0.1em}{\parbox{1.1em}{\large\JBNF\symbol{"F098}}}}
-\def\emailIcon{\raisebox{0.1em}{\parbox{1.1em}{\large\JBNF\symbol{"F01EF}}}}
-\def\addressIcon{\raisebox{0.1em}{\parbox{1.25em}{\large\JBNF\symbol{"F015}}}}
+\def\githubIcon{\raisebox{0.1em}{\parbox{1.25em}{\JBNF\symbol{"EA84}}}}
+\def\linkedinIcon{\raisebox{0.1em}{\parbox{1.1em}{\JBNF\symbol{"F08C}}}}
+\def\phoneIcon{\raisebox{0.1em}{\parbox{1.1em}{\JBNF\symbol{"F098}}}}
+\def\emailIcon{\raisebox{0.1em}{\parbox{1.1em}{\JBNF\symbol{"F01EF}}}}
+\def\addressIcon{\raisebox{0.1em}{\parbox{1.25em}{\JBNF\symbol{"F015}}}}
 %-----------------------------------------------------------------------------%
 % settings for title formats
 \titleformat{\section}[hang]{\large\bf}{}{0em}{}[\vspace{-0.8em}\rule{\columnwidth}{1pt}\vspace{-0.15em}]
