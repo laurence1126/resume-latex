@@ -12,7 +12,7 @@
 \LoadClass[10pt]{article}
 % Adjust line spread
 \linespread{1.08}
-% set vertical spaces for title section
+% Adjust vertical spaces for title section
 \def\vspaceHead{-2em} \def\vspaceTail{-1em}
 %-----------------------------------------------------------------------------%
 % input command for name (required)
