@@ -4,6 +4,7 @@
 %-----------------------------------------------------------------------------%
 % defination of class variables
 \newcommand{\@resumeSytle}{classic}
+\DeclareOption{classic}{\renewcommand{\@resumeSytle}{classic}}
 \DeclareOption{fancy}{\renewcommand{\@resumeSytle}{fancy}}
 \DeclareOption{icons}{\renewcommand{\@resumeSytle}{icons}}
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{article}}
