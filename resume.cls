@@ -10,6 +10,9 @@
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{article}}
 \ProcessOptions\relax
 \LoadClass[10pt]{article}
+% Adjust line spread
+\linespread{1.08}
+% set vertical spaces for title section
 \def\vspaceHead{-2em} \def\vspaceTail{-1em}
 %-----------------------------------------------------------------------------%
 % input command for name (required)
@@ -143,7 +146,6 @@
 \newcommand{\note}[1]{\mbox{\textit{#1}}}
 %-----------------------------------------------------------------------------%
 % additional settings
-\linespread{1.08} % set line spread
 \setlength{\parindent}{0em}
 \setlist[itemize, 1]{label=$\bullet$, nosep, leftmargin=1em}
 \setlist[itemize, 2]{label=$\circ$, nosep, leftmargin=1.5em}
