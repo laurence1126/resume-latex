@@ -59,14 +59,15 @@
 }
 %-----------------------------------------------------------------------------%
 % load required packages
-\usepackage[most]{tcolorbox}
-\usepackage{enumitem}
-\usepackage{fancyhdr}
-\usepackage{fontspec}
-\usepackage{geometry}
-\usepackage{hyperref}
-\usepackage{ifthen}
-\usepackage{titlesec}
+\RequirePackage[most]{tcolorbox}
+\RequirePackage{enumitem}
+\RequirePackage{fancyhdr}
+\RequirePackage{fontspec}
+\RequirePackage{geometry}
+\RequirePackage{hyperref}
+\RequirePackage{ifthen}
+\RequirePackage{titlesec}
+\RequirePackage{xparse}
 %-----------------------------------------------------------------------------%
 % settings for fancy resume style
 \newtcbox{\module}{tcbox width=forced left, width=\columnwidth, enhanced, colback=black!10!white, borderline west={1mm}{0pt}{black},boxrule=0mm,
@@ -142,8 +143,10 @@
 \newcommand{\institution}[2]{\parbox{\textwidth}{\textbf{#1}\hfill #2}}
 \newcommand{\position}[2]{\parbox{\textwidth}{\textit{#1}\hfill #2}}
 \newcommand{\awards}[2]{\parbox{\textwidth}{#1\hfill #2}}
-\newcommand{\skills}[2]{\mbox{\textbf{#1:\ }#2}}
-\newcommand{\note}[1]{\mbox{\textit{#1}}}
+\newcommand{\skills}[2]{\textbf{#1:\ }#2}
+\NewDocumentCommand{\note}{s m}{
+    \IfBooleanTF{#1}{\textit{#2}}{#2}
+}
 %-----------------------------------------------------------------------------%
 % additional settings
 \setlength{\parindent}{0em}
