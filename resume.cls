@@ -4,12 +4,16 @@
 %-----------------------------------------------------------------------------%
 % defination of class variables
 \newcommand{\@resumeSytle}{classic}
+\newcommand{\@fontSize}{10pt}
 \DeclareOption{classic}{\renewcommand{\@resumeSytle}{classic}}
 \DeclareOption{fancy}{\renewcommand{\@resumeSytle}{fancy}}
 \DeclareOption{icons}{\renewcommand{\@resumeSytle}{icons}}
+\DeclareOption{10pt}{\renewcommand{\@fontSize}{10pt}}
+\DeclareOption{11pt}{\renewcommand{\@fontSize}{11pt}}
+\DeclareOption{12pt}{\renewcommand{\@fontSize}{12pt}}
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{article}}
 \ProcessOptions\relax
-\LoadClass[10pt]{article}
+\LoadClass[\@fontSize]{article}
 % Adjust line spread
 \linespread{1.08}
 % Adjust vertical spaces for title section
