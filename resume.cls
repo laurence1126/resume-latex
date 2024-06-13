@@ -8,6 +8,7 @@
 \DeclareOption{classic}{\renewcommand{\@resumeSytle}{classic}}
 \DeclareOption{fancy}{\renewcommand{\@resumeSytle}{fancy}}
 \DeclareOption{icons}{\renewcommand{\@resumeSytle}{icons}}
+\DeclareOption{cmu}{\renewcommand{\@resumeSytle}{cmu}}
 \DeclareOption{10pt}{\renewcommand{\@fontSize}{10pt}}
 \DeclareOption{11pt}{\renewcommand{\@fontSize}{11pt}}
 \DeclareOption{12pt}{\renewcommand{\@fontSize}{12pt}}
@@ -42,17 +43,28 @@
   	\vspace*{\vspaceHead} % '*' for adjust vertical space at the start of a page
   	\begin{center}
     	{\LARGE\textbf{\@author}}\\[0.25em]
-    	\ifthenelse{\NOT\equal{\@resumeSytle}{classic}}{\large\phoneIcon}{Phone:}\ \href{tel:\@phone}{\@phone}\ |\ 
-    	\ifthenelse{\NOT\equal{\@resumeSytle}{classic}}{\large\emailIcon}{Email:}\ \href{mailto:\@email}{\@email}
-        \ifthenelse{\NOT\equal{\@linkedin}{}}{
-            \hspace{-0.5em} |\ \href{\@linkedin}{\large\linkedinIcon} \hspace{-0.25em}
-        }{}
-        \ifthenelse{\NOT\equal{\@github}{}}{
-            \hspace{-0.75em} |\ \href{\@github}{\large\githubIcon}
-        }{}
-        \ifthenelse{\NOT\equal{\@address}{}}{
-            \\ \ifthenelse{\NOT\equal{\@resumeSytle}{classic}}{\large\addressIcon}{Address:}\ \@address
-        }{}
+        \ifthenelse{\equal{\@resumeSytle}{cmu}}{
+            \begin{tabularx}{\columnwidth}{>{\raggedright}X >{\centering \hsize=0.5\columnwidth}X >{\raggedleft}X}
+                \href{tel:\@phone}{\@phone} &
+                \href{https://\@linkedin}{\@linkedin}
+                \ifthenelse{\NOT\equal{\@github}{}}{
+                    \\[-0.2\baselineskip]\href{https://\@github}{\@github}
+                }{} &
+                \href{mailto:\@email}{\@email}
+            \end{tabularx}
+        }{
+            \ifthenelse{\NOT\equal{\@resumeSytle}{classic}}{\large\phoneIcon}{Phone:}\ \href{tel:\@phone}{\@phone}\ |\ 
+            \ifthenelse{\NOT\equal{\@resumeSytle}{classic}}{\large\emailIcon}{Email:}\ \href{mailto:\@email}{\@email}
+            \ifthenelse{\NOT\equal{\@linkedin}{}}{
+                \hspace{-0.5em} |\ \href{https://\@linkedin}{\large\linkedinIcon} \hspace{-0.25em}
+            }{}
+            \ifthenelse{\NOT\equal{\@github}{}}{
+                \hspace{-0.75em} |\ \href{https://\@github}{\large\githubIcon}
+            }{}
+            \ifthenelse{\NOT\equal{\@address}{}}{
+                \\\ifthenelse{\NOT\equal{\@resumeSytle}{classic}}{\large\addressIcon}{Address:}\ \@address
+            }{}
+        }
   	\end{center}
   	\thispagestyle{fancy}
     \ifthenelse{\equal{\@resumeSytle}{fancy}}{
@@ -65,11 +77,13 @@
 % load required packages
 \RequirePackage[most]{tcolorbox}
 \RequirePackage{enumitem}
+\RequirePackage{etoolbox}
 \RequirePackage{fancyhdr}
 \RequirePackage{fontspec}
 \RequirePackage{geometry}
 \RequirePackage{hyperref}
 \RequirePackage{ifthen}
+\RequirePackage{tabularx}
 \RequirePackage{titlesec}
 \RequirePackage{xparse}
 %-----------------------------------------------------------------------------%
@@ -132,7 +146,6 @@
         Renderer=HarfBuzz
     ]
 }
-
 % define shortcut for icons
 \def\githubIcon{\raisebox{0.1em}{\parbox{1.25em}{\JBNF\symbol{"EA84}}}}
 \def\linkedinIcon{\raisebox{0.1em}{\parbox{1.1em}{\JBNF\symbol{"F08C}}}}
@@ -141,9 +154,15 @@
 \def\addressIcon{\raisebox{0.1em}{\parbox{1.25em}{\JBNF\symbol{"F015}}}}
 %-----------------------------------------------------------------------------%
 % settings for title formats
-\titleformat{\section}[hang]{\large\bf}{}{0em}{}[\vspace{-0.8em}\rule{\columnwidth}{1pt}\vspace{-0.15em}]
-\titlespacing{\section}{0em}{0em}{0em}[0em]
-% parameters: {space left}{space above}{space below}[space remain on the right]
+\ifthenelse{\equal{\@resumeSytle}{cmu}}{
+    \titleformat{\section}[hang]{\centering\bf}{}{0em}{}[\vspace{-0.6\baselineskip}\rule{\columnwidth}{1pt}\vspace{-0.2\baselineskip}]
+    % parameters: {space left}{space above}{space below}[space remain on the right]
+    \titlespacing{\section}{0em}{0.5em}{0em}[0em]
+}{
+    \titleformat{\section}[hang]{\large\bf}{}{0em}{}[\vspace{-0.6\baselineskip}\rule{\columnwidth}{1pt}\vspace{-0.2\baselineskip}]
+    % parameters: {space left}{space above}{space below}[space remain on the right]
+    \titlespacing{\section}{0em}{0em}{0em}[0em]
+}
 \newcommand{\institution}[2]{\parbox{\textwidth}{\textbf{#1}\hfill #2}}
 \newcommand{\position}[2]{\parbox{\textwidth}{\textit{#1}\hfill #2}}
 \newcommand{\awards}[2]{\parbox{\textwidth}{#1\hfill #2}}
@@ -158,4 +177,6 @@
 \setlist[itemize, 2]{label=$\circ$, nosep, leftmargin=1.5em}
 \setlist[enumerate, 1]{nosep, leftmargin=1.5em}
 \setlist[enumerate, 2]{nosep, leftmargin=2em}
+\AtBeginEnvironment{tabularx}{\setlength{\tabcolsep}{0em}}
+\renewcommand{\tabularxcolumn}[1]{m{#1}}
 %----------------------------------------------------------------------------%
