@@ -44,6 +44,7 @@
   	\begin{center}
     	{\LARGE\textbf{\@author}}\\[0.25em]
         \ifthenelse{\equal{\@resumeSytle}{cmu}}{
+            \setlength{\tabcolsep}{0em}
             \begin{tabularx}{\columnwidth}{>{\raggedright}X >{\centering \hsize=0.5\columnwidth}X >{\raggedleft}X}
                 \href{tel:\@phone}{\@phone} &
                 \href{https://\@linkedin}{\@linkedin}
@@ -77,7 +78,6 @@
 % load required packages
 \RequirePackage[most]{tcolorbox}
 \RequirePackage{enumitem}
-\RequirePackage{etoolbox}
 \RequirePackage{fancyhdr}
 \RequirePackage{fontspec}
 \RequirePackage{geometry}
@@ -177,6 +177,5 @@
 \setlist[itemize, 2]{label=$\circ$, nosep, leftmargin=1.5em}
 \setlist[enumerate, 1]{nosep, leftmargin=1.5em}
 \setlist[enumerate, 2]{nosep, leftmargin=2em}
-\AtBeginEnvironment{tabularx}{\setlength{\tabcolsep}{0em}}
 \renewcommand{\tabularxcolumn}[1]{m{#1}}
 %----------------------------------------------------------------------------%
