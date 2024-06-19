@@ -4,21 +4,21 @@
 %-----------------------------------------------------------------------------%
 % defination of class variables
 \newcommand{\@resumeSytle}{classic}
-\newcommand{\@fontSize}{10pt}
 \DeclareOption{classic}{\renewcommand{\@resumeSytle}{classic}}
 \DeclareOption{fancy}{\renewcommand{\@resumeSytle}{fancy}}
 \DeclareOption{icons}{\renewcommand{\@resumeSytle}{icons}}
 \DeclareOption{cmu}{\renewcommand{\@resumeSytle}{cmu}}
-\DeclareOption{10pt}{\renewcommand{\@fontSize}{10pt}}
-\DeclareOption{11pt}{\renewcommand{\@fontSize}{11pt}}
-\DeclareOption{12pt}{\renewcommand{\@fontSize}{12pt}}
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{article}}
 \ProcessOptions\relax
-\LoadClass[\@fontSize]{article}
+\LoadClass{article}
 % Adjust line spread
 \linespread{1.08}
-% Adjust vertical spaces for title section
+% Adjust vertical spaces before and after personal information
 \def\vspaceHead{-2em} \def\vspaceTail{-1em}
+% Adjust vertical spaces before section headings for CMU style
+\def\vspaceSection{0.25\baselineskip}
+% Adjust vertical spaces before institution lines for CMU style
+\def\vspaceInstitution{0.5\baselineskip}
 %-----------------------------------------------------------------------------%
 % input command for name (required)
 \newcommand{\name}[1]{\author{#1}}
@@ -42,8 +42,8 @@
 \renewcommand\maketitle{
   	\vspace*{\vspaceHead} % '*' for adjust vertical space at the start of a page
   	\begin{center}
-    	{\LARGE\textbf{\@author}}\\[0.25em]
         \ifthenelse{\equal{\@resumeSytle}{cmu}}{
+            {\LARGE\textbf{\MakeUppercase\@author}}\\[0.25em]
             \setlength{\tabcolsep}{0em}
             \begin{tabularx}{\columnwidth}{>{\raggedright}X >{\centering \hsize=0.5\columnwidth}X >{\raggedleft}X}
                 \href{tel:\@phone}{\@phone} &
@@ -54,6 +54,7 @@
                 \href{mailto:\@email}{\@email}
             \end{tabularx}
         }{
+            {\LARGE\textbf{\@author}}\\[0.25em]
             \ifthenelse{\NOT\equal{\@resumeSytle}{classic}}{\large\phoneIcon}{Phone:}\ \href{tel:\@phone}{\@phone}\ |\ 
             \ifthenelse{\NOT\equal{\@resumeSytle}{classic}}{\large\emailIcon}{Email:}\ \href{mailto:\@email}{\@email}
             \ifthenelse{\NOT\equal{\@linkedin}{}}{
@@ -155,21 +156,20 @@
 %-----------------------------------------------------------------------------%
 % settings for title formats
 \ifthenelse{\equal{\@resumeSytle}{cmu}}{
-    \titleformat{\section}[hang]{\centering\bf}{}{0em}{}[\vspace{-0.6\baselineskip}\rule{\columnwidth}{1pt}\vspace{-0.2\baselineskip}]
+    \titleformat{\section}[hang]{\centering}{}{0em}{}[\vspace{-0.7\baselineskip}\rule{\columnwidth}{0.75pt}\vspace{-0.2\baselineskip}]
     % parameters: {space left}{space above}{space below}[space remain on the right]
-    \titlespacing{\section}{0em}{0.5em}{0em}[0em]
+    \titlespacing{\section}{0em}{\vspaceSection}{-\vspaceInstitution}[0em]
+    \newcommand{\institution}[2]{\parbox{\textwidth}{\vspace{\vspaceInstitution}\MakeUppercase{#1}\hfill #2}}
 }{
-    \titleformat{\section}[hang]{\large\bf}{}{0em}{}[\vspace{-0.6\baselineskip}\rule{\columnwidth}{1pt}\vspace{-0.2\baselineskip}]
+    \titleformat{\section}[hang]{\large\bf}{}{0em}{}[\vspace{-0.7\baselineskip}\rule{\columnwidth}{1pt}\vspace{-0.2\baselineskip}]
     % parameters: {space left}{space above}{space below}[space remain on the right]
     \titlespacing{\section}{0em}{0em}{0em}[0em]
+    \newcommand{\institution}[2]{\parbox{\textwidth}{\textbf{#1}\hfill #2}}
 }
-\newcommand{\institution}[2]{\parbox{\textwidth}{\textbf{#1}\hfill #2}}
 \newcommand{\position}[2]{\parbox{\textwidth}{\textit{#1}\hfill #2}}
 \newcommand{\awards}[2]{\parbox{\textwidth}{#1\hfill #2}}
 \newcommand{\skills}[2]{\textbf{#1:\ }#2}
-\NewDocumentCommand{\note}{s m}{
-    \IfBooleanTF{#1}{\textit{#2}}{#2}
-}
+\NewDocumentCommand{\note}{s m}{\IfBooleanTF{#1}{\textit{#2}}{#2}}
 %-----------------------------------------------------------------------------%
 % additional settings
 \setlength{\parindent}{0em}
