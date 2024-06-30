@@ -2,7 +2,7 @@
 \ProvidesClass{resume}[Templete for resume]
 
 %-----------------------------------------------------------------------------%
-% defination of class variables
+% Defination of class variables
 \newcommand{\resumeSytle}{classic}
 \DeclareOption{classic}{\renewcommand{\resumeSytle}{classic}}
 \DeclareOption{fancy}{\renewcommand{\resumeSytle}{fancy}}
@@ -11,39 +11,44 @@
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{article}}
 \ProcessOptions\relax
 \LoadClass{article}
+%-----------------------------------------------------------------------------%
 % Adjust line spread
-\linespread{1.05}
-% Adjust vertical spaces before and after personal information
-\def\vspaceHead{-2em} \def\vspaceTail{-1em}
-% Adjust vertical spaces before section headings for CMU style
+\linespread{1.025}
+% Adjust page margins
+\def\marginTop{0.5in}
+\def\marginBottom{0.5in}
+\def\marginLeft{0.5in}
+\def\marginRight{0.5in}
+% Adjust vertical space after personal information
+\def\vspaceTail{-0.8\baselineskip}
+% Adjust vertical spaces before section headings
 \def\vspaceSection{0.25\baselineskip}
 % Adjust vertical spaces before institution lines for CMU style
 \def\vspaceInstitution{0.5\baselineskip}
 %-----------------------------------------------------------------------------%
-% input command for name (required)
+% Input command for name (required)
 \newcommand{\name}[1]{\author{#1}}
-% input command for phone (required)
+% Input command for phone (required)
 \newcommand{\@phone}{}
 \newcommand{\phone}[1]{\renewcommand{\@phone}{#1}}
-% input command for Email (required)
+% Input command for Email (required)
 \newcommand{\@email}{}
 \newcommand{\email}[1]{\renewcommand{\@email}{#1}}
-% input command for address
+% Input command for address
 \newcommand{\@address}{}
 \newcommand{\address}[1]{\renewcommand{\@address}{#1}}
-% input command for LinkedIn
+% Input command for LinkedIn
 \newcommand{\@linkedin}{}
 \newcommand{\linkedin}[1]{\renewcommand{\@linkedin}{#1}}
-% input command for GitHub
+% Input command for GitHub
 \newcommand{\@github}{}
 \newcommand{\github}[1]{\renewcommand{\@github}{#1}}
 %-----------------------------------------------------------------------------%
-% redefine maketitle
+% Redefine maketitle
 \renewcommand\maketitle{
-  	\vspace*{\vspaceHead} % '*' for adjust vertical space at the start of a page
   	\begin{center}
         \ifthenelse{\equal{\resumeSytle}{cmu}}{
-            {\LARGE\textbf{\MakeUppercase\@author}}\\[0.25em]
+            {\LARGE\textbf{\MakeUppercase\@author}}\\[0.25\baselineskip]
             \setlength{\tabcolsep}{0em}
             \begin{tabularx}{\columnwidth}{>{\raggedright}X >{\centering \hsize=0.5\columnwidth}X >{\raggedleft}X}
                 \href{tel:\@phone}{\@phone} &
@@ -76,7 +81,7 @@
     }
 }
 %-----------------------------------------------------------------------------%
-% load required packages
+% Load required packages
 \RequirePackage[most]{tcolorbox}
 \RequirePackage{enumitem}
 \RequirePackage{fancyhdr}
@@ -88,7 +93,7 @@
 \RequirePackage{titlesec}
 \RequirePackage{xparse}
 %-----------------------------------------------------------------------------%
-% settings for fancy resume style
+% Settings for fancy resume style
 \newtcbox{\module}{tcbox width=forced left, width=\columnwidth, enhanced, colback=black!10!white, borderline west={1mm}{0pt}{black},boxrule=0mm,
 	frame hidden, fontupper=\large\bf, colupper=black, left=0.5em, top=0.2em, bottom=0.2em, before skip=0.25em, after skip=0.25em, sharp corners, breakable}
 \newtcbox{\transparent}{blank, on line, opacitytext=0}
@@ -96,9 +101,9 @@
 	\renewcommand{\section}[1]{\module{#1}}
 }{}
 %-----------------------------------------------------------------------------%
-% settings for document page size
+% Settings for document page size and margin
 % A4 paper full size: 210mm x 297mm
-\geometry{a4paper, total={190mm, 277mm}, left=10mm, top=10mm}
+\geometry{a4paper, top=\marginTop, bottom=\marginBottom, left=\marginLeft, right=\marginRight}
 %-----------------------------------------------------------------------------%
 % Settings for no hyphenation
 \tolerance=1
@@ -109,7 +114,7 @@
 % href links no special effect
 \hypersetup{hidelinks, colorlinks=true, urlcolor=black, linkcolor=black}
 %-----------------------------------------------------------------------------%
-% settings for fancy header, footer, and page number
+% Settings for fancy header, footer, and page number
 \fancyfootoffset{0pt}
 \pagestyle{fancy}
 \rhead{}\lhead{}
@@ -117,13 +122,13 @@
 \renewcommand{\headrulewidth}{0pt}
 \renewcommand{\footrulewidth}{0pt}
 %------------------------------------------------------------------------------%
-% settings for document general fonts
-% set the default folder to search for fonts
+% Settings for document general fonts
+% Set the default folder to search for fonts
 \def\@fontPath{./fonts/}
-\IfFontExistsTF{Helvetica Neue}{
-    \setmainfont{Helvetica Neue}[Renderer=HarfBuzz]
+\IfFontExistsTF{Arial}{
+    \setmainfont{Arial}[Renderer=HarfBuzz]
 }{
-    \setmainfont{HelveticaNeue}[
+    \setmainfont{Arial}[
         Extension=.ttf,
         Path=\@fontPath,
         UprightFont=*,
@@ -147,34 +152,32 @@
         Renderer=HarfBuzz
     ]
 }
-% define shortcut for icons
+% Define shortcut for icons
 \def\githubIcon{\raisebox{0.1em}{\parbox{1.25em}{\JBNF\symbol{"EA84}}}}
 \def\linkedinIcon{\raisebox{0.1em}{\parbox{1.1em}{\JBNF\symbol{"F08C}}}}
 \def\phoneIcon{\raisebox{0.1em}{\parbox{1.1em}{\JBNF\symbol{"F098}}}}
 \def\emailIcon{\raisebox{0.1em}{\parbox{1.1em}{\JBNF\symbol{"F01EF}}}}
 \def\addressIcon{\raisebox{0.1em}{\parbox{1.25em}{\JBNF\symbol{"F015}}}}
 %-----------------------------------------------------------------------------%
-% settings for title formats
+% Settings for title formats
 \ifthenelse{\equal{\resumeSytle}{cmu}}{
     \titleformat{\section}[hang]{\centering}{}{0em}{}[\vspace{-0.7\baselineskip}\rule{\columnwidth}{0.75pt}\vspace{-0.2\baselineskip}]
     % parameters: {space left}{space above}{space below}[space remain on the right]
     \titlespacing{\section}{0em}{\vspaceSection}{-\vspaceInstitution}[0em]
-    \NewDocumentCommand{\institution}{m O{} m}{\ifthenelse{\equal{#2}{}}{\vspace{\vspaceInstitution}\MakeUppercase{#1}\hfill #3\\}{\vspace{\vspaceInstitution}\MakeUppercase{#1} (#2)\hfill #3\\}}
+    \NewDocumentCommand{\institution}{m O{} O{} m}{\ifthenelse{\equal{#2}{}}{\vspace{\vspaceInstitution}\MakeUppercase{#1} #3\hfill #4}{\vspace{\vspaceInstitution}\MakeUppercase{#1} (#2) #3\hfill #4}}
 }{
     \titleformat{\section}[hang]{\large\bf}{}{0em}{}[\vspace{-0.7\baselineskip}\rule{\columnwidth}{1pt}\vspace{-0.2\baselineskip}]
     % parameters: {space left}{space above}{space below}[space remain on the right]
-    \titlespacing{\section}{0em}{0em}{0em}[0em]
-    \NewDocumentCommand{\institution}{m O{} m}{\ifthenelse{\equal{#2}{}}{\textbf{#1}\hfill #3\\}{\textbf{#1} (#2)\hfill #3\\}}
+    \titlespacing{\section}{0em}{\vspaceSection}{0em}[0em]
+    \NewDocumentCommand{\institution}{m O{} O{} m}{\ifthenelse{\equal{#2}{}}{\textbf{#1} #3\hfill #4}{\textbf{#1} (#2) #3\hfill #4}}
 }
-\NewDocumentCommand{\position}{m O{} m}{\ifthenelse{\equal{#2}{}}{\textit{#1}\hfill #3}{\textit{#1}\hfill\parbox{0.4\textwidth}{\textit{\textbf{#2}}\hfill #3}}}
+\NewDocumentCommand{\position}{m O{} m}{\ifthenelse{\equal{#2}{}}{\\\textit{#1}\hfill #3}{\\\textit{#1}\hfill\parbox{0.4\textwidth}{\textit{\textbf{#2}}\hfill #3}}}
 \NewDocumentCommand{\skills}{m m}{\textbf{#1:\ }#2}
 \NewDocumentCommand{\note}{s m}{\IfBooleanTF{#1}{\textit{#2}}{#2}}
 %-----------------------------------------------------------------------------%
-% additional settings
+% Additional settings
 \setlength{\parindent}{0em}
-\setlist[itemize, 1]{label=$\bullet$, nosep, leftmargin=1em}
-\setlist[itemize, 2]{label=$\circ$, nosep, leftmargin=1.5em}
-\setlist[enumerate, 1]{nosep, leftmargin=1.5em}
-\setlist[enumerate, 2]{nosep, leftmargin=2em}
+\setlist[itemize, 1]{label=$\bullet$, nosep, leftmargin=*, labelindent=0em, labelsep=0.5em}
+\setlist[itemize, 2]{label=$\circ$, nosep, leftmargin=*, labelindent=0em, labelsep=0.5em}
 \renewcommand{\tabularxcolumn}[1]{m{#1}}
 %----------------------------------------------------------------------------%
