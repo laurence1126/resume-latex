@@ -4,10 +4,12 @@
 %-----------------------------------------------------------------------------%
 % Defination of class variables
 \newcommand{\resumeSytle}{classic}
+\newcommand{\hideGithub}{false}
 \DeclareOption{classic}{\renewcommand{\resumeSytle}{classic}}
 \DeclareOption{fancy}{\renewcommand{\resumeSytle}{fancy}}
 \DeclareOption{icons}{\renewcommand{\resumeSytle}{icons}}
 \DeclareOption{cmu}{\renewcommand{\resumeSytle}{cmu}}
+\DeclareOption{hideGithub}{\renewcommand{\hideGithub}{true}}
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{article}}
 \ProcessOptions\relax
 \LoadClass{article}
@@ -174,6 +176,7 @@
 \NewDocumentCommand{\position}{m O{} m}{\ifthenelse{\equal{#2}{}}{\\\textit{#1}\hfill #3}{\\\textit{#1}\hfill\parbox{0.4\textwidth}{\textit{\textbf{#2}}\hfill #3}}}
 \NewDocumentCommand{\skills}{m m}{\textbf{#1:\ }#2}
 \NewDocumentCommand{\note}{s m}{\IfBooleanTF{#1}{\textit{#2}}{#2}}
+\NewDocumentCommand{\githubLink}{m}{\ifthenelse{\equal{\hideGithub}{true}}{}{\href{#1}{\githubIcon}}}
 %-----------------------------------------------------------------------------%
 % Additional settings
 \setlength{\parindent}{0em}
