@@ -24,9 +24,9 @@
 % Adjust vertical space after personal information
 \def\vspaceTail{-0.8\baselineskip}
 % Adjust vertical spaces before section headings
-\def\vspaceSection{0.25\baselineskip}
+\def\vspaceSection{0.5\baselineskip}
 % Adjust vertical spaces before institution lines for CMU style
-\def\vspaceInstitution{0.5\baselineskip}
+\def\vspaceInstitution{0.75\baselineskip}
 %-----------------------------------------------------------------------------%
 % Input command for name (required)
 \newcommand{\name}[1]{\author{#1}}
@@ -50,7 +50,7 @@
 \renewcommand\maketitle{
   	\begin{center}
         \ifthenelse{\equal{\resumeSytle}{cmu}}{
-            {\LARGE\textbf{\MakeUppercase\@author}}\\[0.25\baselineskip]
+            {\LARGE\textbf{\MakeUppercase\@author}}\\[0.5\baselineskip]
             \setlength{\tabcolsep}{0em}
             \begin{tabularx}{\columnwidth}{>{\raggedright}X >{\centering \hsize=0.5\columnwidth}X >{\raggedleft}X}
                 \href{tel:\@phone}{\@phone} &
@@ -61,7 +61,7 @@
                 \href{mailto:\@email}{\@email}
             \end{tabularx}
         }{
-            {\LARGE\textbf{\@author}}\\[0.25em]
+            {\LARGE\textbf{\@author}}\\[0.25\baselineskip]
             \ifthenelse{\NOT\equal{\resumeSytle}{classic}}{\large\phoneIcon}{Phone:}\ \href{tel:\@phone}{\@phone}\ |\ 
             \ifthenelse{\NOT\equal{\resumeSytle}{classic}}{\large\emailIcon}{Email:}\ \href{mailto:\@email}{\@email}
             \ifthenelse{\NOT\equal{\@linkedin}{}}{
