@@ -15,12 +15,10 @@
 \LoadClass{article}
 %-----------------------------------------------------------------------------%
 % Adjust line spread
-\linespread{1.025}
+\linespread{1.03}
 % Adjust page margins
-\def\marginTop{0.5in}
-\def\marginBottom{0.5in}
-\def\marginLeft{0.5in}
-\def\marginRight{0.5in}
+\def\verticalMargin{0.45in}
+\def\horizontalMargin{0.5in}
 % Adjust vertical space after personal information
 \def\vspaceTail{-0.8\baselineskip}
 % Adjust vertical spaces before section headings
@@ -105,7 +103,7 @@
 %-----------------------------------------------------------------------------%
 % Settings for document page size and margin
 % A4 paper full size: 210mm x 297mm
-\geometry{a4paper, top=\marginTop, bottom=\marginBottom, left=\marginLeft, right=\marginRight}
+\geometry{a4paper, top=\verticalMargin, bottom=\verticalMargin, left=\horizontalMargin, right=\horizontalMargin}
 %-----------------------------------------------------------------------------%
 % Settings for no hyphenation
 \tolerance=1
