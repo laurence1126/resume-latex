@@ -15,7 +15,7 @@
 \LoadClass{article}
 %-----------------------------------------------------------------------------%
 % Adjust line spread
-\linespread{1.03}
+\linespread{1.02}
 % Adjust page margins
 \def\@verticalMargin{0.45in}
 \def\@horizontalMargin{0.5in}
@@ -102,7 +102,7 @@
 }{
     \let\originalSection\section
     \renewcommand{\section}[1]{
-        \def\sectionName{#1}    
+        \def\sectionName{#1}
         \originalSection{#1}
     }
 }
