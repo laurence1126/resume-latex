@@ -15,16 +15,16 @@
 \LoadClass{article}
 %-----------------------------------------------------------------------------%
 % Adjust line spread
-\linespread{1.02}
+\linespread{1.1}
 % Adjust page margins
-\def\@verticalMargin{0.45in}
+\def\@verticalMargin{0.5in}
 \def\@horizontalMargin{0.5in}
 % Adjust vertical space after personal information
 \def\@vspaceTail{-0.8\baselineskip}
 % Adjust vertical spaces before section headings
 \def\@vspaceSection{0.5\baselineskip}
 % Adjust vertical spaces before institution lines for CMU style
-\def\@vspaceInstitution{0.75\baselineskip}
+\def\@vspaceInstitution{0.7\baselineskip}
 %-----------------------------------------------------------------------------%
 % Input command for name (required)
 \newcommand{\name}[1]{\author{#1}}
@@ -131,10 +131,10 @@
 % Settings for document general fonts
 % Set the default folder to search for fonts
 \def\@fontPath{./fonts/}
-\IfFontExistsTF{Arial}{
-    \setmainfont{Arial}[Renderer=HarfBuzz]
+\IfFontExistsTF{HelveticaNeue}{
+    \setmainfont{HelveticaNeue}[Renderer=HarfBuzz]
 }{
-    \setmainfont{Arial}[
+    \setmainfont{HelveticaNeue}[
         Extension=.ttf,
         Path=\@fontPath,
         UprightFont=*,
