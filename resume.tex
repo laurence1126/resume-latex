@@ -1,20 +1,24 @@
 \documentclass[cmu]{resume}
 
 \begin{document}
+    %--------------------------------------------------------------------------%
+    
     \name{Laurence JIN}
-    \phone{(646) 842-7734}
+    \phone{+1 (646) 842-7734}
     \email{laurencj@andrew.cmu.edu}
     \linkedin{www.linkedin.com/in/laurence-jin}
     \github{github.com/laurence1126}
     \address{160 Water Street, New York, NY 10038}
     \maketitle
+
     %--------------------------------------------------------------------------%
+
     \section{EDUCATION}
     % Carnegie Mellon University
     \institution{Carnegie Mellon University, Tepper School of Business}{New York, NY}
-    \position{Master of Science in Computational Finance - MSCF}[QPA: 4.25 / 4.33]{12/25}
+    \position{Master of Science in Computational Finance - MSCF}[QPA: 4.12 / 4.33]{12/25}
     \begin{itemize}
-        \item Upcoming Coursework: Stochastic Calculus, Machine Learning, Financial Computing (Python, C++) \& Optimization, Simulation Methods for Option Pricing
+        \item Relevant Coursework: Stochastic Calculus, Machine Learning, Financial Computing (Python, C++) \& Optimization, Simulation Methods for Option Pricing
     \end{itemize}
 
     % The Chinese University of Hong Kong
@@ -27,18 +31,71 @@
     \end{itemize}
 
     % McGill University
-    \institution{McGill University}{Montreal, Quebec}
+    \institution{McGill University}{Montreal, QC}
     \position{Semester Exchange Student, Faculty of Science}[Term GPA: 4.00 / 4.00]{05/23}
     \begin{itemize}
         \item Relevant Coursework: Matrix Numerical Analysis, Statistical Learning, Ordinary Differential Equations
     \end{itemize}
+
     %--------------------------------------------------------------------------%
+
+    \section{EXPERIENCE}
+    % Millennium Management LLC
+    \institution{Millennium Management LLC}[]{New York, NY}
+    \position{Quantitative Research Intern, Central Liquidity Strategies}{06/25 - 08/25}
+    \begin{itemize}
+        \item Engineered implied volatility-driven feature (volatility percentage shock) with KDB+/Q and applied cross-sectional quantile analysis on PnL (post-trade analysis) to evaluate predictive signals around pending events
+        \item Validated the predictive strength of the feature with significant t-test statistics on the quantile spreads, and achieved a Sharpe ratio of 1.3 in the high-low PnL buckets
+        \item Collaborated with senior researchers to refine trading algorithms based on markup and slippage analysis, improving execution strategies through premium adjustments or expedited unwinding, and reducing PnL loss by 8 bps
+        \item Implemented a heterogeneous autoregressive (HAR) model with implied volatility augmentation to forecast realized volatility of index ETFs, improving the $R^2$ by 20\% over the baseline model during volatile market conditions
+    \end{itemize}
+    
+    % Dymon Asia Capital (Hong Kong) Ltd.
+    \institution{Dymon Asia Capital (HK) Ltd.}[Leading hedge fund in Asia with US\$5.7 billion AUM]{Hong Kong}
+    \position{Quantitative Research Intern, MSIF-Portfolio Management Department}{08/23 - 12/23}
+    \begin{itemize}
+        \item Designed efficient SQL database schemas and optimized query performance to ensure seamless data retrieval
+        \item Developed web scraping tools (Selenium) to automate data extraction; facilitated data accuracy and consistency
+        % \item Expedited data acquisition and validation processes about index rebalancing from Bloomberg, MSCI, and FactSet
+    \end{itemize}
+
+    % Prudential Holdings Ltd.
+    \institution{Prudential Holdings Ltd.}[Global leading insurance and asset management company]{Hong Kong}
+    \position{Actuarial Intern, Asset / Liability Management (Group Investment)}{05/23 - 08/23}
+    % \note{Contracted with Robert Walters (HK) Ltd.}
+    \begin{itemize}
+        \item Generated stochastic simulation sets under risk-neutral scenarios; deeply involved in data collection, parameters refinement and testing to meet calibration targets
+        \item Assisted in research and further development of modelling process, enhanced daily workflow with Python automation
+        % \item Performed market-consistent valuations for multiple countries and real-world projections based on simulation sets
+    \end{itemize}
+
+    % China Galaxy Securities Co., Ltd.
+    % \institution{China Galaxy Securities Co., Ltd.}[Top-tier investment bank in China]{Beijing, China}
+    % \position{Data Analyst Intern, Securities Finance Department}{06/22 - 08/22}
+    % \begin{itemize}
+    %     \item Exploited pricing discrepancies between spot and futures markets for China Stock Indices, analyzed the distribution of lending interest rate, and generated trading signals to identify cash-and-carry arbitrage opportunities
+    %     \item Tracked domestic financial market movements and regulatory environment, analyzed credit market data using Python
+    %     % \item Calculated P\&L, VaR and sensitivities of several portfolios, implemented P\&L attribution analysis and backtesting
+    %     % \item Investigated on stock ratings and trading behaviors, collaborated in pricing model refinement and optimization
+    % \end{itemize}
+
+    % Minsheng Equity Investment Fund Management Co., Ltd.
+    % \institution{Minsheng Equity Investment Fund Management Co., Ltd.}{Beijing, China}
+    % \position{Industry Research Intern, Investment Management Department}{05/21 - 08/21}
+    % \begin{itemize}
+    %     \item Conducted research and analysis on target client profiles and relevant industry (photovoltaic, autonomous vehicle)
+    %     \item Appraised comparable listed companies valuation (EV/EBITDA, P/E, DCF) and comparable transactions valuation
+    %     \item Assisted in drafting pitch books for potential transactions, composed marketing materials for reporting purposes
+    % \end{itemize}
+
+    %-------------------------------------------------------------------------%
+
     \section{PROJECTS}
     % FINA 4380 Course Project
-    \institution{Quantitative Portfolio Construction Strategy}[][\githubLink{https://github.com/laurence1126/Quant-Trading-Strategy}]{01/24 - 04/24}
+    \institution{Quantitative Portfolio Construction \& Optimization}[][\githubLink{https://github.com/laurence1126/Quant-Trading-Strategy}]{01/24 - 04/24}
     \begin{itemize}
         \item Integrated Bayesian shrinkage, Black-Litterman model and multi-factor models in re-evaluating posterior predictive moments of stock returns, reduced estimation errors by optimizing balance between bias and variance
-        \item Backtested portfolio performance via Backtrader and QuantStats (Python packages), achieved a Sortino ratio of 1.1 and a CAGR of 15.89\% over a four-year period
+        \item Backtested portfolio performance via Backtrader and QuantStats (Python packages), achieved a Sharpe ratio of 1.1 and a CAGR of 15.89\% over a four-year period
     \end{itemize}
 
     % FINA 4150 Course Project
@@ -56,58 +113,22 @@
     % \end{itemize}
 
     % CuSell
-    \institution{CuSell}[Online marketplace for university students to trade used products][\githubLink{https://github.com/1155141394/CuSell}]{01/22 - 04/22}
-    \begin{itemize}
-        \item Scripted in HTML / CSS / JavaScript; designed and developed ornamented, user-friendly UI \& web pages
-        \item Built connection and integrated front-end user-facing interfaces with back-end web server framework (Python Django)
-        % \item Regularly maintained, managed, and updated project codes on GitHub with latest dependencies
-    \end{itemize}
-    %-------------------------------------------------------------------------%
-    \section{EXPERIENCE}
-    % Dymon Asia Capital (Hong Kong) Ltd.
-    \institution{Dymon Asia Capital (HK) Ltd.}[Leading hedge fund in Asia with US\$5.7 billion AUM]{Hong Kong}
-    \position{Quantitative Research Intern, MSIF-Portfolio Management Department}{08/23 - 12/23}
-    \begin{itemize}
-        \item Designed efficient SQL database schemas and optimized query performance to ensure seamless data retrieval
-        \item Developed web scraping tools (Selenium) to automate data extraction; facilitated data accuracy and consistency
-        \item Expedited data acquisition and validation processes about index rebalancing from Bloomberg, MSCI, and FactSet
-    \end{itemize}
-
-    % Prudential Holdings Ltd.
-    \institution{Prudential Holdings Ltd.}[Global leading insurance and asset management company]{Hong Kong}
-    \position{Actuarial Intern, Asset / Liability Management (Group Investment)}{05/23 - 08/23}
-    % \note{Contracted with Robert Walters (HK) Ltd.}
-    \begin{itemize}
-        \item Generated stochastic simulation sets under risk-neutral scenarios; deeply involved in data collection, parameters refinement and testing to meet calibration targets
-        \item Assisted in research and further development of modelling process, enhanced daily workflow with Python automation
-        \item Performed market-consistent valuations for multiple countries and real-world projections based on simulation sets
-    \end{itemize}
-
-    % China Galaxy Securities Co., Ltd.
-    \institution{China Galaxy Securities Co., Ltd.}[Top-tier investment bank in China]{Beijing, China}
-    \position{Data Analyst Intern, Securities Finance Department}{06/22 - 08/22}
-    \begin{itemize}
-        \item Exploited pricing discrepancies between spot and futures markets for China Stock Indices, analyzed the distribution of lending interest rate, and generated trading signals to identify cash-and-carry arbitrage opportunities
-        \item Tracked domestic financial market movements and regulatory environment, analyzed credit market data using Python
-        % \item Calculated P\&L, VaR and sensitivities of several portfolios, implemented P\&L attribution analysis and backtesting
-        % \item Investigated on stock ratings and trading behaviors, collaborated in pricing model refinement and optimization
-    \end{itemize}
-
-    % Minsheng Equity Investment Fund Management Co., Ltd.
-    % \institution{Minsheng Equity Investment Fund Management Co., Ltd.}{Beijing, China}
-    % \position{Industry Research Intern, Investment Management Department}{05/21 - 08/21}
+    % \institution{CuSell}[Online marketplace for university students to trade used products][\githubLink{https://github.com/1155141394/CuSell}]{01/22 - 04/22}
     % \begin{itemize}
-    %     \item Conducted research and analysis on target client profiles and relevant industry (photovoltaic, autonomous vehicle)
-    %     \item Appraised comparable listed companies valuation (EV/EBITDA, P/E, DCF) and comparable transactions valuation
-    %     \item Assisted in drafting pitch books for potential transactions, composed marketing materials for reporting purposes
+    %     \item Scripted in HTML / CSS / JavaScript; designed and developed ornamented, user-friendly UI \& web pages
+    %     \item Built connection and integrated front-end user-facing interfaces with back-end web server framework (Python Django)
+    %     % \item Regularly maintained, managed, and updated project codes on GitHub with latest dependencies
     % \end{itemize}
-    %--------------------------------------------------------------------------%
+
+    %-------------------------------------------------------------------------%
+
     \section{ADDITIONAL INFORMATION}
     \begin{itemize}
         \item \skills{Software}{Experienced with Bloomberg, GitHub, SQL Server, Visual Studio Code, Microsoft Azure}
-        \item \skills{Programming}{Python (OOP, data analysis \& visualization), LaTeX, R, Excel VBA, Linux Command}
+        \item \skills{Programming}{Python (OOP, data analysis \& visualization), KDB+/Q, C++, LaTeX, R, Excel VBA, Linux Command}
         \item \skills{Interests}{Ping-Pong, Traveling, Photography, Video Games}
         % \item \skills{Language}{Fluent in English (IELTS 7.5), Mandarin (native), Cantonese (basic)}
     \end{itemize}
+
     %-------------------------------------------------------------------------%
 \end{document}
